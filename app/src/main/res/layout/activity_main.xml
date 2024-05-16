@@ -9,13 +9,11 @@
 
     <EditText
         android:id="@+id/et1"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_width="347dp"
+        android:layout_height="63dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="103dp"
-        android:layout_marginEnd="224dp"
         android:hint="value"
-        app:layout_constraintEnd_toStartOf="@+id/btn1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,22 +21,20 @@
         android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="105dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:text="保存参数"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/et1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="31dp"
         android:text="刷新"
-        app:layout_constraintStart_toStartOf="@+id/btn1"
-        app:layout_constraintTop_toBottomOf="@+id/btn1" />
+        app:layout_constraintStart_toEndOf="@+id/btn1"
+        app:layout_constraintTop_toBottomOf="@+id/et1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
