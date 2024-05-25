@@ -22,7 +22,7 @@ public class MySqliteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "create table myTable1(" + "_id integer primary key autoincrement," +
-                "username text, uNumber text,"+ "uColor integer," + "uMessage text," + "permitted intege,r" + "value1 integer)";
+                "username text, uNumber text,"+ "uColor integer," + "uMessage text," + "permitted intege," + "rvalue1 integer)";
 
         db.execSQL(sql);
 

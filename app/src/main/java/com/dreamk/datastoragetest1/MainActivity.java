@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn4.setOnClickListener(v -> {
 
-            //插入数据库按键
+            //插入数据库按键,不细写了~
             SQLiteOpenHelper helper = MySqliteOpenHelper.getmInstance(this);
             SQLiteDatabase writableDatabase = helper.getWritableDatabase();
 
@@ -114,8 +114,10 @@ public class MainActivity extends AppCompatActivity {
 //                    index0 = Integer.getInteger(str_id);
 //                }
 
-                String sql1 = "insert into myTable1(username,uNumber) values('" + str_username + "','" + str_uNumber + "')";
-
+//                String sql1 = "insert into myTable1(username,uNumber) values('" + str_username + "','" + str_uNumber + "')";
+                String sql1 = "insert into myTable1(username,uNumber,uColor,uMessage,permitted,rvalue1) values('"
+                        + "test111111111111111111111111" + "','" + "吉A114514asviklasfhj" + "','"
+                        + 100 + "','" + "这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦这里是测试文字哦" + "','" + 10 +  "','" + 222 +"')";
                 writableDatabase.execSQL(sql1);
 
             }
@@ -126,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn5.setOnClickListener(v -> {
             //读取数据库按键
+
             SQLiteOpenHelper helper = MySqliteOpenHelper.getmInstance(this);
             SQLiteDatabase db = helper.getReadableDatabase();
 
@@ -135,8 +138,11 @@ public class MainActivity extends AppCompatActivity {
 //                int _idEt;
                 int username_index;
                 int uNumber_index;
-                String username;
-                String uNumber;
+                int uColor_index;
+                int uMessage_index;
+                int permitted_index;
+                int rvalue1_index;
+                String username,uNumber,uColor,uMessage2,permitted,rvalue1;
 
                 try {
                     Cursor cursor = db.rawQuery("select * from myTable1 where _id = " + str_id,null);
@@ -144,23 +150,55 @@ public class MainActivity extends AppCompatActivity {
 
                         username_index = cursor.getColumnIndex("username");
                         uNumber_index = cursor.getColumnIndex("uNumber");
+                        uColor_index = cursor.getColumnIndex("uColor");
+                        uMessage_index = cursor.getColumnIndex(" uMessage ");
+                        permitted_index = cursor.getColumnIndex("permitted");
+                        rvalue1_index = cursor.getColumnIndex("rvalue1");
 
 
 
                         if(username_index >= 0){
                             username = cursor.getString(username_index);
                         } else {
-                            username = null;
+                            username = "null";
                         }
 
                         if(uNumber_index >= 0){
                             uNumber = cursor.getString(uNumber_index);
                         } else {
-                            uNumber = null;
+                            uNumber = "null";
+                        }
+                        if(uColor_index >= 0){
+                            uColor = String.valueOf(cursor.getInt(uColor_index));
+                        } else {
+                            uColor = "null";
+                        }
+//                        if(uMessage_index >= 0){
+                            uMessage2 = cursor.getString(4);
+//                        } else {
+//                            uMessage2 = "null";
+//                        }
+                        if(permitted_index >= 0){
+                            permitted = String.valueOf(cursor.getInt(permitted_index));
+                        } else {
+                            permitted = "null";
+                        }
+                        if(rvalue1_index >= 0){
+                            rvalue1 = String.valueOf(cursor.getInt(rvalue1_index));
+                        } else {
+                            rvalue1 = "null";
                         }
 
+
+
+                        clear_all_et.callOnClick();
                         et_username.setText(username);
                         et_uNumber.setText(uNumber);
+                        et_uColor.setText(uColor);
+                        et_uMessage.setText(uMessage2);
+                        et_permitted.setText(permitted);
+                        et_value1.setText(rvalue1);
+
 
                     }
                     cursor.close();
