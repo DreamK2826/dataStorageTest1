@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                         username_index = cursor.getColumnIndex("username");
                         uNumber_index = cursor.getColumnIndex("uNumber");
                         uColor_index = cursor.getColumnIndex("uColor");
-                        uMessage_index = cursor.getColumnIndex(" uMessage ");
+                        uMessage_index = cursor.getColumnIndex(" uMessage");
                         permitted_index = cursor.getColumnIndex("permitted");
                         rvalue1_index = cursor.getColumnIndex("rvalue1");
 
